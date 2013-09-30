@@ -1,23 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3200" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="NVl-CZ-gbL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="4">
+        <!--Images View Controller - Images-->
+        <scene sceneID="0CY-W3-FPL">
             <objects>
-                <viewController id="2" customClass="UCViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <viewController id="Bk8-2W-yg8" customClass="UCImagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f89-HP-3aT">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" id="qHc-sH-xm3">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Bk8-2W-yg8" id="kcz-kr-9Jx"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Images" id="0SK-eh-Y6x">
+                        <barButtonItem key="rightBarButtonItem" title="Searches" id="DIg-sG-VoH">
+                            <connections>
+                                <segue destination="bkz-lk-H62" kind="modal" identifier="searches_segue" modalTransitionStyle="flipHorizontal" id="956-su-aIw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="searchBar" destination="qHc-sH-xm3" id="S9I-8f-dWW"/>
+                        <segue destination="9GM-xV-kbM" kind="push" identifier="image_segue" id="ioU-Wv-wXu"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71T-mP-rEb" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="997" y="-23"/>
+        </scene>
+        <!--Searches View Controller-->
+        <scene sceneID="MPW-xd-m2c">
+            <objects>
+                <viewController id="bkz-lk-H62" customClass="UCSearchesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yZL-jq-Okb">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V0S-QQ-oH7">
+                                <rect key="frame" x="0.0" y="44" width="768" height="960"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bkz-lk-H62" id="vfc-uv-s9v"/>
+                                    <outlet property="delegate" destination="bkz-lk-H62" id="mM6-n4-tfo"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" id="gRH-ef-ene">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Searches" id="Ud0-J0-Rqn">
+                                        <barButtonItem key="leftBarButtonItem" title="Images" id="x5I-7W-4xn">
+                                            <connections>
+                                                <action selector="imagesButtonPressed:" destination="bkz-lk-H62" id="hkT-9H-XF3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fv9-hK-YDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="1215"/>
+        </scene>
+        <!--Image Viewer View Controller - Image-->
+        <scene sceneID="FtZ-8M-ajA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57r-wB-GCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="9GM-xV-kbM" customClass="UCImageViewerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L7C-tC-Iuo">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" canCancelContentTouches="NO" maximumZoomScale="8" bouncesZoom="NO" id="1a9-8T-y7R">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="pAo-qy-Nku">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="9GM-xV-kbM" id="DF5-gf-xig"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Image" id="hae-Cz-MAb"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="imageView" destination="pAo-qy-Nku" id="I7A-bp-ljy"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1955" y="-23"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i01-eW-6p0">
+            <objects>
+                <navigationController id="NVl-CZ-gbL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BwP-wr-8fR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bk8-2W-yg8" kind="relationship" relationship="rootViewController" id="grl-Co-tmV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="psB-Ab-Whn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="-23"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="UCImageViewerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UCImageViewerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="UCImagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UCImagesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="UCSearchesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UCSearchesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="imagesButtonPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

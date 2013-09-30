@@ -1,0 +1,16 @@
+PODS:
+  - AFNetworking (1.3.2)
+  - PSTCollectionView (1.1.0)
+  - SVProgressHUD (0.9)
+
+DEPENDENCIES:
+  - AFNetworking (~> 1.3.2)
+  - PSTCollectionView (~> 1.1.0)
+  - SVProgressHUD (~> 0.9)
+
+SPEC CHECKSUMS:
+  AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
+  PSTCollectionView: af42b0fb111200a1b87a04aee96181725977f19b
+  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
+
+COCOAPODS: 0.23.0
